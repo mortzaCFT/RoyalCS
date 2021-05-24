@@ -1,7 +1,12 @@
 # RoyaleCS
 Counter-Strike: Global Offensive - Simple External Cheat _Portect By "mortza"_
+#____________________________________________________________________________
+#Readme!
 
-
+I extracted a copy of the program code source for learning and repaired it and got it ready to use.
+This source is open source and anyone can modify it.
+good luck!
+#______________________________________
 # Contact
 - frest at discord: ๖ۣۜ.mortza.ᵈᵃʳᶜʸ#3700
 
