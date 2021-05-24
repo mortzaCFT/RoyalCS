@@ -14,7 +14,7 @@ good luck!
 
 
 ### Features
-# __________________________________
+__________________________________
 Controls:
   - F1 - FovChanger
   - F2 - Anti Flash	
