@@ -12,8 +12,9 @@ good luck!
 - frest at discord: ๖ۣۜ.mortza.ᵈᵃʳᶜʸ#3700
 
 
-# ________________________________
+
 ### Features
+# __________________________________
 Controls:
   - F1 - FovChanger
   - F2 - Anti Flash	
