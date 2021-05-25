@@ -9,7 +9,7 @@ Counter-Strike: Global Offensive - Simple External Cheat _Portect By "mortza"_
  | - _the cheat works fine in game but Trigger dont Us if you using TreggerBots in game anticheats Fast ban you!_      |
  | - _creator Tell Mortza;)_                                                                                           |
 
-                                                                (-_-)
+                                                  (-_-)
 
 
 # Contact
