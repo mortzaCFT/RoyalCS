@@ -10,16 +10,16 @@ Counter-Strike: Global Offensive - Simple External Cheat _Portect By "mortza"_
 # Contact
 - frest at discord: 
 
-
-# ________________________________
 ### Features
-- "WallHack (Toggle Z),"
-- "BunnnyHop (Toggle C),"
-- "AntiFlash (Toggle J), "
-- "ThirdPerson (Toggle H, DISABLED),"
-- "Fov (Toggle O),"
-- "Trigger (Press Left_ALT),"
-- "Radar (Toggle N),"
-- "ConsoleExecute (Soon...)"
-# _________________________________
+
+__________________________________
+Controls:
+  - F1 - FovChanger
+  - F2 - Anti Flash	
+  - F3 - BunnyHup	
+  - F4 - ESP	
+  - F5 - Radar	
+  - F6 - ThiredPerson	
+  - F7 - TrigerBot
+ __________________________________
 
