@@ -23,27 +23,20 @@ namespace RoyaleCS.Core.Handlers
 
             IntPtr handle = GetForegroundWindow();
 
-            if (GetWindowText(handle, builder, value) > 0) return builder.ToString();
-
-            return null;
+            return GetWindowText(handle, builder, value) > 0 ? builder.ToString() : null;
         }
 
         internal static bool TryGetCSGOWindow()
         {
             string result = GetActiveWindowTitle();
 
-            if (result != null && result.Equals(Information.PROCESS_FULLNAME)) return true;
-
-            return false;
+            return result != null && result.Equals(Information.PROCESS_FULLNAME);
         }
 
         internal static bool TryGetActiveWindowByName(string name)
         {
-            string result = string.Empty;
-
-            if ((result = GetActiveWindowTitle()) != null && result.Equals(name)) return true;
-
-            return false;
+            string result;
+            return (result = GetActiveWindowTitle()) != null && result.Equals(name);
         }
     }
 }

@@ -19,23 +19,23 @@ namespace RoyaleCS.Core.Features
             
         protected override void OnEnable()
         {
-            Main.Instance.Listener.SetOnKeyPressed(Main.Instance.Listener.GetOnKeyPressed() + onKeyDown);
+            Main.Instance.Listener.SetOnKeyPressed(Main.Instance.Listener.GetOnKeyPressed() + OnKeyDown);
 
 
 
-            enable();
+            Enable();
         }
 
         
 
         protected override void OnDisable() 
         {
-            Main.Instance.Listener.SetOnKeyPressed(Main.Instance.Listener.GetOnKeyPressed() - onKeyDown);
+            Main.Instance.Listener.SetOnKeyPressed(Main.Instance.Listener.GetOnKeyPressed() - OnKeyDown);
         }
 
 
 
-        private void enable()
+        private void Enable()
         {
             Task task = new Task(() =>
             {
@@ -63,11 +63,11 @@ namespace RoyaleCS.Core.Features
 
 
 
-        private void onKeyDown(Key key)
+        private void OnKeyDown(Key key)
         {
             if (WindowHandler.TryGetCSGOWindow())
             {
-                if (key == Key.N) enabled = !enabled;
+                if (key == Key.F5) enabled = !enabled;
             }
         }
     }

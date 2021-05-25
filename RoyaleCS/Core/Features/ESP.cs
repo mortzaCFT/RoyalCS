@@ -1,11 +1,14 @@
 ﻿using RoyaleCS.Core.Handlers;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace RoyaleCS.Core.Functions
 {
+#pragma warning disable CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     internal class ESP : InitializeHandler
+#pragma warning restore CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     {
         private bool enabled;
 
@@ -13,27 +16,32 @@ namespace RoyaleCS.Core.Functions
 
         internal ESP(bool enabled)
         {
-            this.enabled = enabled;
+            ESP eSP1 = this;
+            ESP eSP = eSP1;
+            eSP.enabled = enabled;
         }
 
-
+        public ESP()
+        {
+        }
 
         protected override void OnEnable()
         {
-            Main.Instance.Listener.SetOnKeyPressed(Main.Instance.Listener.GetOnKeyPressed() + onKeyDown);
+            Main.Instance.Listener.SetOnKeyPressed(Main.Instance.Listener.GetOnKeyPressed() + OnKeyDown);
 
-            enable();
+            Enable();
         }
 
-       
-
-        protected override void OnDisable() => Main.Instance.Listener.SetOnKeyPressed(Main.Instance.Listener.GetOnKeyPressed() - onKeyDown);
 
 
-
-        private void enable()
+        protected override void OnDisable()
         {
-            Task task = new Task(() =>
+            Main.Instance.Listener.SetOnKeyPressed(Main.Instance.Listener.GetOnKeyPressed() - OnKeyDown);
+        }
+
+        private void Enable()
+        {
+            void action()
             {
                 while (true)
                 {
@@ -45,15 +53,20 @@ namespace RoyaleCS.Core.Functions
 
                             for (int i = 0; i < 64; i++)
                             {
-                                int enemyNum = Cheat.Memory.Read<int>(Cheat.ModuleAddress + Offsets.dwEntityList + i * 16);
+                                int enemyNum = Cheat.Memory.Read<int>(Cheat.ModuleAddress + Offsets.dwEntityList + (i * 16));
                                 int enemyTeamNum = Cheat.Memory.Read<int>(enemyNum + Offsets.m_iTeamNum);
                                 int index = Cheat.Memory.Read<int>(enemyNum + Offsets.m_iGlowIndex);
 
                                 if (enemyTeamNum != 0)
                                 {
-                                    if (enemyTeamNum != playerTeamNum) drawEnemy(index, 255, 0, 0, 255);
-
-                                    else drawEnemy(index, 0, 0, 255, 255);
+                                    if (enemyTeamNum != playerTeamNum)
+                                    {
+                                        DrawEnemy(index, 255, 0, 0, 255);
+                                    }
+                                    else
+                                    {
+                                        DrawEnemy(index, 0, 0, 255, 255);
+                                    }
                                 }
                             }
                         }
@@ -61,34 +74,33 @@ namespace RoyaleCS.Core.Functions
 
                     Thread.Sleep(1);
                 }
-            });
+            }
+            Task task = new Task(action);
 
             task.Start();
         }
 
-
-
-        private void drawEnemy(int index, int red, int green, int blue, int alpha)
+        private void DrawEnemy(int index, int v1, int v2, int v3, int v4)
         {
-            int num = Cheat.Memory.Read<int>(Cheat.ModuleAddress + Offsets.dwGlowObjectManager);
-
-            Cheat.Memory.Write(num + index * 56 + 4, red / 100f);
-            Cheat.Memory.Write(num + index * 56 + 8, green / 100f);
-            Cheat.Memory.Write(num + index * 56 + 12, blue / 100f);
-            Cheat.Memory.Write(num + index * 56 + 16, alpha / 100f);
-
-            Cheat.Memory.Write(num + index * 56 + 36, true);
-            Cheat.Memory.Write(num + index * 56 + 37, false);
+            throw new NotImplementedException();
         }
 
-
-
-        private void onKeyDown(Key key)
+        private void OnKeyDown(Key key)
         {
             if (WindowHandler.TryGetCSGOWindow())
             {
-                if (key == Key.Z) enabled = !enabled;
+                if (key == Key.F4)
+                {
+                    bool v = !enabled;
+                    enabled = v;
+                }
             }
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is ESP eSP &&
+enabled == eSP.enabled;
         }
     }
 }

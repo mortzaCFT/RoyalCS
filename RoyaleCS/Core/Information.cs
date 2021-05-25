@@ -12,7 +12,7 @@
         internal const string VERSION_DATE_TITLE = "VersionDate=";
         internal const string VERSION_TIME_TITLE = "VersionTime=";
 
-        internal const string VERSION_DATE = "May 20 2021";
-        internal const string VERSION_TIME = "13:38:28";
+        internal const string VERSION_DATE = "May 24 2021";
+        internal const string VERSION_TIME = "16:36:16";
     }
 }

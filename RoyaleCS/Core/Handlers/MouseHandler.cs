@@ -11,15 +11,15 @@ namespace RoyaleCS.Core.Handlers
 
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-        internal static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
+        internal static extern void Mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
 
 
 
         internal static void ImitateClick()
         {
-            mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+            Mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
 
-            mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+            Mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
         }
     }
 }

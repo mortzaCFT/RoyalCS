@@ -8,7 +8,7 @@ namespace RoyaleCS.Core.Functions
 {
     internal class Trigger : InitializeHandler
     {
-        protected override void OnEnable() => enable();
+        protected override void OnEnable() => Enable();
 
 
 
@@ -16,7 +16,7 @@ namespace RoyaleCS.Core.Functions
 
 
 
-        private void enable()
+        private void Enable()
         {
             Task task = new Task(() =>
             {

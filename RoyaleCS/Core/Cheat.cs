@@ -31,7 +31,7 @@ namespace RoyaleCS.Core
                 }
 
                 Utilities.Debug.Log(">> TryFindProcess()");
-                Utilities.Debug.Log($"[DEBUG:1] {(process?.ProcessName ?? "NULL")} P: ({string.Join(" , ", processes.Select(p => p.ProcessName))})");
+                Utilities.Debug.Log($"[DEBUG:1] {process?.ProcessName ?? "NULL"} P: ({string.Join(" , ", processes.Select(p => p.ProcessName))})");
                 if (process != null)
                 {
                     Memory = new Memory(Information.PROCESS_NAME);
@@ -69,8 +69,13 @@ namespace RoyaleCS.Core
             {
                 string infText = File.ReadAllText(infPath);
                 content = infText;
-                if (infText.Contains(string.Concat(Information.VERSION_DATE_TITLE, Information.VERSION_DATE)) && infText.Contains(string.Concat(Information.VERSION_TIME_TITLE, Information.VERSION_TIME)))
+                if (!infText.Contains(string.Concat(Information.VERSION_DATE_TITLE, Information.VERSION_DATE)) || !infText.Contains(string.Concat(Information.VERSION_TIME_TITLE, Information.VERSION_TIME)))
+                {
+                }
+                else
+                {
                     return true;
+                }
             }
 
             return false;

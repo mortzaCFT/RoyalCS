@@ -5,7 +5,7 @@ namespace RoyaleCS.Core.Features
 {
     internal class AutoPistol : InitializeHandler
     {
-        private bool enabled;
+        private readonly bool enabled;
 
 
 
@@ -16,17 +16,18 @@ namespace RoyaleCS.Core.Features
 
 
 
-        protected override void OnEnable() => enable();
-
-
+        protected override void OnEnable()
+        {
+            Enable();
+        }
 
         protected override void OnDisable() { }
 
 
 
-        private void enable()
+        private void Enable()
         {
-            Thread thread = new Thread(t =>
+            void start(object t)
             {
                 while (true)
                 {
@@ -44,7 +45,8 @@ namespace RoyaleCS.Core.Features
 
                     Thread.Sleep(1);
                 }
-            });
+            }
+            Thread thread = new Thread(start);
 
             thread.Start();
         }

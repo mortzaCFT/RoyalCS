@@ -16,19 +16,19 @@ namespace RoyaleCS.Core.Functions
 
 
 
-        protected override void OnEnable() => Main.Instance.Listener.SetOnKeyPressed(Main.Instance.Listener.GetOnKeyPressed() + onKeyDown);
+        protected override void OnEnable() => Main.Instance.Listener.SetOnKeyPressed(Main.Instance.Listener.GetOnKeyPressed() + OnKeyDown);
 
 
 
-        protected override void OnDisable() => Main.Instance.Listener.SetOnKeyPressed(Main.Instance.Listener.GetOnKeyPressed() - onKeyDown);
+        protected override void OnDisable() => Main.Instance.Listener.SetOnKeyPressed(Main.Instance.Listener.GetOnKeyPressed() - OnKeyDown);
 
 
 
-        private void onKeyDown(Key key)
+        private void OnKeyDown(Key key)
         {
             if (WindowHandler.TryGetCSGOWindow())
             {
-                if (key == Key.O && !Player.IsScoping)
+                if (key == Key.F1 && !Player.IsScoping)
                 {
                     if (enabled = !enabled) Player.SetFov(110);
 

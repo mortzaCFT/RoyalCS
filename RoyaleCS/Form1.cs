@@ -24,7 +24,7 @@ namespace RoyaleCS
 
             Instance = this;
 
-            FormClosed += onMainUnload;
+            FormClosed += OnMainUnload;
 
             Listener = new SimpleKeyboardListener();
 
@@ -70,11 +70,11 @@ namespace RoyaleCS
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
         }
 
-        private void onMainUnload(object sender, FormClosedEventArgs e)
+        private void OnMainUnload(object sender, FormClosedEventArgs e)
         {
             ApplicationHandler.Unload?.Invoke();
 
-            FormClosed -= onMainUnload;
+            FormClosed -= OnMainUnload;
 
             Process.GetCurrentProcess().Kill();
         }

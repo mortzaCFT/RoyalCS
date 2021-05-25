@@ -15,20 +15,28 @@ namespace RoyaleCS.Core.Handlers
 
 
         [DllImport("user32.dll")]
-        internal static extern short GetAsyncKeyState(Int32 vKey);
+        internal static extern short GetAsyncKeyState(int vKey);
 
 
 
-        internal static bool GetKeyDown(Keys key) => 
-            GetAsyncKeyState((int)key) != 0;
+        internal static bool GetKeyDown(Keys key)
+        {
+            return GetAsyncKeyState((int)key) != 0;
+        }
 
-        internal static bool GetKeyDown(int key) =>
-            GetAsyncKeyState(key) != 0;
+        internal static bool GetKeyDown(int key)
+        {
+            return GetAsyncKeyState(key) != 0;
+        }
 
-        internal static bool GetLeftMouseButtonDown() => 
-            GetKeyDown(VK_LBUTTON);
+        internal static bool GetLeftMouseButtonDown()
+        {
+            return GetKeyDown(VK_LBUTTON);
+        }
 
-        internal static bool GetRightMouseButtonDown() => 
-            GetKeyDown(VK_RBUTTON);
+        internal static bool GetRightMouseButtonDown()
+        {
+            return GetKeyDown(VK_RBUTTON);
+        }
     }
 }

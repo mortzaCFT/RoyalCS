@@ -16,10 +16,12 @@ namespace RoyaleCS.Core.KeyboardListener.SimpleKeyboardListener
 
 
         private IntPtr hookId = IntPtr.Zero;
+        private readonly Handle handle1;
 
-        private Handle handle { get; }
-
-
+        private Handle Gethandle()
+        {
+            return handle1;
+        }
 
         internal delegate IntPtr Handle(int nCode, IntPtr wParam, IntPtr lParam);
 
@@ -29,7 +31,7 @@ namespace RoyaleCS.Core.KeyboardListener.SimpleKeyboardListener
 
         internal SimpleKeyboardListener()
         {
-            handle = hookCallback;
+            handle1 = HookCallback;
 
             Hook();
         }
@@ -58,18 +60,20 @@ namespace RoyaleCS.Core.KeyboardListener.SimpleKeyboardListener
 
 
 
-        internal void Hook() => hookId = setHook(handle);
+        internal void Hook() => hookId = SetHook(Gethandle());
 
         internal void UnHook() => UnhookWindowsHookEx(hookId);
 
 
 
-        private IntPtr setHook(Handle handle) => SetWindowsHookEx(WH_KEYBOARD_LL, handle, GetModuleHandle(Process.GetCurrentProcess().MainModule.ModuleName), 0);
+        private IntPtr SetHook(Handle handle) => SetWindowsHookEx(WH_KEYBOARD_LL, handle, GetModuleHandle(Process.GetCurrentProcess().MainModule.ModuleName), 0);
 
-        private IntPtr hookCallback(int nCode, IntPtr wParam, IntPtr lParam)
+        private IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
-            if (nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN || wParam == (IntPtr)WM_SYSKEYDOWN)
+            if ((nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN) || wParam == (IntPtr)WM_SYSKEYDOWN)
+            {
                 OnKeyPressed?.Invoke(KeyInterop.KeyFromVirtualKey(Marshal.ReadInt32(lParam)));
+            }
 
             return CallNextHookEx(hookId, nCode, wParam, lParam);
         }

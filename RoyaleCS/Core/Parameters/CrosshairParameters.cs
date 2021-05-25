@@ -19,6 +19,9 @@
 
 
 
-        internal bool TriggerIsTeammate() => Player.TeamNum == TriggeredEnemyTeam;
+        internal bool TriggerIsTeammate()
+        {
+            return Player.TeamNum == TriggeredEnemyTeam;
+        }
     }
 }
