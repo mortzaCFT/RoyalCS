@@ -13,7 +13,7 @@ Counter-Strike: Global Offensive - Simple External Cheat _Portect By "mortza"_
 
 
 # Contact
-- frest at discord: 
+- frest at discord: ๖ۣۜ.mortza.ᵈᵃʳᶜʸ#3700
 
 ### Features
 
