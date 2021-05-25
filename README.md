@@ -1,15 +1,14 @@
 # RoyaleCS
 Counter-Strike: Global Offensive - Simple External Cheat _Portect By "mortza"_
 
-
-# ____________________________________________________________________________________________________________________ -    
+    
 # ReadMe                                                                                                             
  | -_wall hacks our radar
- \ -_anti flsh in game_
+ | -_anti flsh in game_
  | - _BonnyHup AutoRun in game_                                                                                        |
  | - _the cheat works fine in game but Trigger dont Us if you using TreggerBots in game anticheats Fast ban you!_      |
  | - _creator Tell Mortza;)_                                                                                           |
- # ___________________________________________________________________________________________________________________ -
+
                                                                 |
 
 
