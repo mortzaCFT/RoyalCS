@@ -1,7 +1,7 @@
 # RoyaleCS
 Counter-Strike: Global Offensive - Simple External Cheat _Portect By "mortza"_
 __________________________________________________________________________________
-# banned from steam (VAC) im sad :(
+# detect from steam (VAC) im sad :(
 
     
 # ReadMe                                                                                                             
