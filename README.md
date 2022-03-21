@@ -15,7 +15,7 @@ ________________________________________________________________________________
 
 
 # Contact
-- frest at discord: ๖ۣۜ.mortza.ᵈᵃʳᶜʸ#3700
+- frest at discord: mortza#3700
 
 ### Features
 
